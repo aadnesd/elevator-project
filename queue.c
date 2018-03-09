@@ -2,6 +2,7 @@
 #include "io.h"
 #include "channels.h"
 #include <stdio.h>	
+#include "queue.h"
 
 /*  Matrise med dei tre forskjellige knappane for alle fire etasjar, lagrar bestillingane  */
 static int buttons[3][4] = { { 0 },{ 0 },{ 0 } };

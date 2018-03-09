@@ -8,7 +8,7 @@
 
 int main()
 {
-	// Initialize hardware
+	/* Initialiser hardware  */
 	if (!elev_init ()) {
 		printf("Unable to initialize elevator hardware!\n");
 		return 1;
@@ -40,14 +40,14 @@ int main()
 		/*  Set nåværande etasje (blir sett til -1 om heiser er i mellom 2 etasjarar  */
 		set_curr_floor ();
 
-		//Sjekkar om stoppknappen er trykt
+		/*  Sjekkar om stoppknappen er trykt  */
 		if (elev_get_stop_signal ()) {
 			sm_stop_button_pressed ();
 			timer_start ();
 		}
 
-		//Sjekkar om heisen skal stoppe der den er
-		if (should_stop (get_last_floor (), get_directionm ())) {
+		/*  Sjekkar om heisen skal stoppe der den er  */
+		if (should_stop (get_last_floor (), get_direction ())) {
 			sm_open_door_and_enter ();
 		}
 
@@ -57,7 +57,7 @@ int main()
 		}
 
 		if (timer_running () == 0) {
-			if (choose_direction (get_last_floor ()) != DIRN_STOP) {   //Bare dersom noko er bestilt
+			if (choose_direction (get_last_floor ()) != DIRN_STOP) {   /*  Bare dersom noko er bestilt  */
 				sm_move ();
 			}
 		}
